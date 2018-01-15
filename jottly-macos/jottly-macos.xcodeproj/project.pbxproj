@@ -1,0 +1,327 @@
+// !$*UTF8*$!
+{
+	archiveVersion = 1;
+	classes = {
+	};
+	objectVersion = 46;
+	objects = {
+
+/* Begin PBXBuildFile section */
+		332AE5A71EEDE52300FBB641 /* CFArray+Sequence.swift in Sources */ = {isa = PBXBuildFile; fileRef = 332AE5A61EEDE52300FBB641 /* CFArray+Sequence.swift */; };
+		33446F2D1C3477E4006B4A79 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 33446F2C1C3477E4006B4A79 /* AppDelegate.swift */; };
+		33446F321C3477E4006B4A79 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 33446F311C3477E4006B4A79 /* Assets.xcassets */; };
+		33446F351C3477E4006B4A79 /* MainMenu.xib in Resources */ = {isa = PBXBuildFile; fileRef = 33446F331C3477E4006B4A79 /* MainMenu.xib */; };
+		336F297A1FF3E0440098687B /* Jottly.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 33446F2E1C3477E4006B4A79 /* Jottly.xcdatamodeld */; };
+		33C69F2A1D27181300ABB47A /* ForegroundApplication.swift in Sources */ = {isa = PBXBuildFile; fileRef = 33C69F291D27181300ABB47A /* ForegroundApplication.swift */; };
+/* End PBXBuildFile section */
+
+/* Begin PBXFileReference section */
+		332AE5A61EEDE52300FBB641 /* CFArray+Sequence.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "CFArray+Sequence.swift"; sourceTree = "<group>"; };
+		33446F291C3477E4006B4A79 /* Jottly.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Jottly.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		33446F2C1C3477E4006B4A79 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
+		33446F2F1C3477E4006B4A79 /* Jottly.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = Jottly.xcdatamodel; sourceTree = "<group>"; };
+		33446F311C3477E4006B4A79 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
+		33446F341C3477E4006B4A79 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = Base; path = Base.lproj/MainMenu.xib; sourceTree = "<group>"; };
+		33446F361C3477E4006B4A79 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		33C69F291D27181300ABB47A /* ForegroundApplication.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ForegroundApplication.swift; sourceTree = "<group>"; };
+/* End PBXFileReference section */
+
+/* Begin PBXFrameworksBuildPhase section */
+		33446F261C3477E4006B4A79 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXFrameworksBuildPhase section */
+
+/* Begin PBXGroup section */
+		33446F201C3477E4006B4A79 = {
+			isa = PBXGroup;
+			children = (
+				33446F2B1C3477E4006B4A79 /* Sources */,
+				33446F2A1C3477E4006B4A79 /* Products */,
+			);
+			sourceTree = "<group>";
+		};
+		33446F2A1C3477E4006B4A79 /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				33446F291C3477E4006B4A79 /* Jottly.app */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+		33446F2B1C3477E4006B4A79 /* Sources */ = {
+			isa = PBXGroup;
+			children = (
+				33446F2C1C3477E4006B4A79 /* AppDelegate.swift */,
+				33C69F291D27181300ABB47A /* ForegroundApplication.swift */,
+				332AE5A61EEDE52300FBB641 /* CFArray+Sequence.swift */,
+				33446F311C3477E4006B4A79 /* Assets.xcassets */,
+				33446F331C3477E4006B4A79 /* MainMenu.xib */,
+				33446F361C3477E4006B4A79 /* Info.plist */,
+				33446F2E1C3477E4006B4A79 /* Jottly.xcdatamodeld */,
+			);
+			path = Sources;
+			sourceTree = "<group>";
+		};
+/* End PBXGroup section */
+
+/* Begin PBXNativeTarget section */
+		33446F281C3477E4006B4A79 /* jottly-macos */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 33446F391C3477E4006B4A79 /* Build configuration list for PBXNativeTarget "jottly-macos" */;
+			buildPhases = (
+				33446F251C3477E4006B4A79 /* Sources */,
+				33446F261C3477E4006B4A79 /* Frameworks */,
+				33446F271C3477E4006B4A79 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = "jottly-macos";
+			productName = Jottly;
+			productReference = 33446F291C3477E4006B4A79 /* Jottly.app */;
+			productType = "com.apple.product-type.application";
+		};
+/* End PBXNativeTarget section */
+
+/* Begin PBXProject section */
+		33446F211C3477E4006B4A79 /* Project object */ = {
+			isa = PBXProject;
+			attributes = {
+				LastSwiftUpdateCheck = 0720;
+				LastUpgradeCheck = 0920;
+				ORGANIZATIONNAME = "Hamilton Chapman";
+				TargetAttributes = {
+					33446F281C3477E4006B4A79 = {
+						CreatedOnToolsVersion = 7.2;
+						DevelopmentTeam = 2YKMTT96X8;
+						LastSwiftMigration = 0920;
+					};
+				};
+			};
+			buildConfigurationList = 33446F241C3477E4006B4A79 /* Build configuration list for PBXProject "jottly-macos" */;
+			compatibilityVersion = "Xcode 3.2";
+			developmentRegion = English;
+			hasScannedForEncodings = 0;
+			knownRegions = (
+				en,
+				Base,
+			);
+			mainGroup = 33446F201C3477E4006B4A79;
+			productRefGroup = 33446F2A1C3477E4006B4A79 /* Products */;
+			projectDirPath = "";
+			projectRoot = "";
+			targets = (
+				33446F281C3477E4006B4A79 /* jottly-macos */,
+			);
+		};
+/* End PBXProject section */
+
+/* Begin PBXResourcesBuildPhase section */
+		33446F271C3477E4006B4A79 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				33446F321C3477E4006B4A79 /* Assets.xcassets in Resources */,
+				33446F351C3477E4006B4A79 /* MainMenu.xib in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXResourcesBuildPhase section */
+
+/* Begin PBXSourcesBuildPhase section */
+		33446F251C3477E4006B4A79 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				332AE5A71EEDE52300FBB641 /* CFArray+Sequence.swift in Sources */,
+				336F297A1FF3E0440098687B /* Jottly.xcdatamodeld in Sources */,
+				33446F2D1C3477E4006B4A79 /* AppDelegate.swift in Sources */,
+				33C69F2A1D27181300ABB47A /* ForegroundApplication.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXSourcesBuildPhase section */
+
+/* Begin PBXVariantGroup section */
+		33446F331C3477E4006B4A79 /* MainMenu.xib */ = {
+			isa = PBXVariantGroup;
+			children = (
+				33446F341C3477E4006B4A79 /* Base */,
+			);
+			name = MainMenu.xib;
+			sourceTree = "<group>";
+		};
+/* End PBXVariantGroup section */
+
+/* Begin XCBuildConfiguration section */
+		33446F371C3477E4006B4A79 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_WARN_BLOCK_CAPTURE_AUTORELEASING = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_COMMA = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
+				CLANG_WARN_STRICT_PROTOTYPES = YES;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				CODE_SIGN_IDENTITY = "-";
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = dwarf;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				ENABLE_TESTABILITY = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu99;
+				GCC_DYNAMIC_NO_PIC = NO;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				MACOSX_DEPLOYMENT_TARGET = 10.11;
+				MTL_ENABLE_DEBUG_INFO = YES;
+				ONLY_ACTIVE_ARCH = YES;
+				SDKROOT = macosx;
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
+			};
+			name = Debug;
+		};
+		33446F381C3477E4006B4A79 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_WARN_BLOCK_CAPTURE_AUTORELEASING = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_COMMA = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
+				CLANG_WARN_STRICT_PROTOTYPES = YES;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				CODE_SIGN_IDENTITY = "-";
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
+				ENABLE_NS_ASSERTIONS = NO;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu99;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				MACOSX_DEPLOYMENT_TARGET = 10.11;
+				MTL_ENABLE_DEBUG_INFO = NO;
+				SDKROOT = macosx;
+				SWIFT_OPTIMIZATION_LEVEL = "-Owholemodule";
+			};
+			name = Release;
+		};
+		33446F3A1C3477E4006B4A79 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				COMBINE_HIDPI_IMAGES = YES;
+				DEVELOPMENT_TEAM = 2YKMTT96X8;
+				INFOPLIST_FILE = Sources/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/../Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = "gg.hc.jottly-macos";
+				PRODUCT_NAME = Jottly;
+				SWIFT_SWIFT3_OBJC_INFERENCE = Default;
+				SWIFT_VERSION = 4.0;
+			};
+			name = Debug;
+		};
+		33446F3B1C3477E4006B4A79 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				COMBINE_HIDPI_IMAGES = YES;
+				DEVELOPMENT_TEAM = 2YKMTT96X8;
+				INFOPLIST_FILE = Sources/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/../Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = "gg.hc.jottly-macos";
+				PRODUCT_NAME = Jottly;
+				SWIFT_SWIFT3_OBJC_INFERENCE = Default;
+				SWIFT_VERSION = 4.0;
+			};
+			name = Release;
+		};
+/* End XCBuildConfiguration section */
+
+/* Begin XCConfigurationList section */
+		33446F241C3477E4006B4A79 /* Build configuration list for PBXProject "jottly-macos" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				33446F371C3477E4006B4A79 /* Debug */,
+				33446F381C3477E4006B4A79 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		33446F391C3477E4006B4A79 /* Build configuration list for PBXNativeTarget "jottly-macos" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				33446F3A1C3477E4006B4A79 /* Debug */,
+				33446F3B1C3477E4006B4A79 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+/* End XCConfigurationList section */
+
+/* Begin XCVersionGroup section */
+		33446F2E1C3477E4006B4A79 /* Jottly.xcdatamodeld */ = {
+			isa = XCVersionGroup;
+			children = (
+				33446F2F1C3477E4006B4A79 /* Jottly.xcdatamodel */,
+			);
+			currentVersion = 33446F2F1C3477E4006B4A79 /* Jottly.xcdatamodel */;
+			path = Jottly.xcdatamodeld;
+			sourceTree = "<group>";
+			versionGroupType = wrapper.xcdatamodel;
+		};
+/* End XCVersionGroup section */
+	};
+	rootObject = 33446F211C3477E4006B4A79 /* Project object */;
+}

@@ -1,3 +1,4 @@
+import Foundation
 import Vapor
 
 /// Called before your application initializes.
@@ -9,5 +10,8 @@ public func configure(
     _ services: inout Services
 ) throws {
     // configure your application here
-    services.use(EngineServerConfig.heroku())
+    if let portString = ProcessInfo.processInfo.environment["PORT"], let customPort = UInt16(portString) {
+        let serverConfig = EngineServerConfig(hostname: "0.0.0.0", port: customPort, backlog: 1000, workerCount: 10, maxConnectionsPerIP: 100)
+        services.register(serverConfig)
+    }
 }

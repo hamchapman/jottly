@@ -23,9 +23,11 @@ final class Routes: RouteCollection {
         }
 
         router.post("jot") { req -> String in
-            let bodyData = req.body.data!
-            let bodyString = String(data: bodyData, encoding: .utf8)!
-            print(bodyString)
+            let _ = req.body.makeData(max: 100_000).do { data in
+                let bodyString = String(data: data, encoding: .utf8)!
+                print(bodyString)
+            }
+
             return "Jot received!"
         }
     }

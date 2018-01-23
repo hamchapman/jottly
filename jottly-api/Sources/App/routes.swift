@@ -1,6 +1,7 @@
 import Routing
 import Vapor
 import Foundation
+import Console
 
 /// Register your application's routes here.
 ///
@@ -25,7 +26,7 @@ final class Routes: RouteCollection {
         router.post("jot") { req -> String in
             let _ = req.body.makeData(max: 100_000).do { data in
                 let bodyString = String(data: data, encoding: .utf8)!
-                print(bodyString)
+                Terminal().output(bodyString, style: .info)
             }
 
             return "Jot received!"

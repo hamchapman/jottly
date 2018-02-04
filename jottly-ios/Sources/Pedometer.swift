@@ -66,12 +66,4 @@ public class Pedometer {
             averageActicePace: pedometerData.averageActivePace?.doubleValue
         )
     }
-
-    func midnightOfToday() -> Date {
-        let now = Date()
-        let midnightToday = Calendar.current.startOfDay(for: now)
-
-        print("Midnight of today: \(midnightToday)")
-        return midnightToday
-    }
 }

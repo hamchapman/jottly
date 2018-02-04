@@ -44,56 +44,76 @@ public class UpdateManager: NSObject {
     }
 
     public var displayNotification: (String, String, String) -> Void
+
     public lazy var healthStepsTodayCompletion: (Double?, Error?) -> Void = { [unowned self] steps, error in
-        guard let steps = steps, error == nil else {
-            //                hcLogger.addToLogs(text: "Error fetching health steps \(error!.localizedDescription)")
-            //                displayNotification("Error fetching health steps", "\(error!.localizedDescription)", "")
+        guard let doubleSteps = steps, error == nil else {
+            hcLogger.addToLogs(text: "Error fetching health steps \(error!.localizedDescription)")
+            //            displayNotification("Error fetching pedo steps", "\(error!.localizedDescription)", "")
             return
         }
+
         // TODO: Shouldn't have to do this
-        let intSteps = Int(steps)
-        if self.previousSteps != nil && self.previousSteps! > intSteps {
-            hcLogger.addToLogs(text: "Got health steps of \(intSteps) but had previous HIGHER value of \(self.previousSteps!)")
-            self.displayNotification("Got health steps", "\(intSteps)", "Previous HIGHER value of \(self.previousSteps!)")
-        } else {
-            hcLogger.addToLogs(text: "Got health steps of \(intSteps) and had previous LOWER value of \(self.previousSteps!)")
-            self.displayNotification("Got health steps", "\(intSteps)", "Previous LOWER value of \(self.previousSteps!)")
-            self.previousSteps = intSteps
-            self.assistantToTheUpdateManager.updateServer(
-                type: "steps",
-                payload: ["steps": intSteps],
-                onSuccess: { data in
-                    hcLogger.addToLogs(text: "Success updating server with new steps value (health)")
-                },
-                onError: { error in
-                    hcLogger.addToLogs(text: "Error updating server with new steps value (health): \(error.localizedDescription)")
-                }
-            )
-        }
+        let steps = Int(doubleSteps)
+        self.updateStepsIfAppropriate(steps, source: "health")
     }
+
     public lazy var pedoStepsTodayCompletion: (Int?, Error?) -> Void = { [unowned self] steps, error in
         guard let steps = steps, error == nil else {
             hcLogger.addToLogs(text: "Error fetching pedo steps \(error!.localizedDescription)")
-//            displayNotification("Error fetching pedo steps", "\(error!.localizedDescription)", "")
+            //            displayNotification("Error fetching pedo steps", "\(error!.localizedDescription)", "")
             return
         }
-        if self.previousSteps != nil && self.previousSteps! > steps {
-            hcLogger.addToLogs(text: "Got pedometer steps of \(steps) but had previous HIGHER value of \(self.previousSteps!)")
-            self.displayNotification("Got pedometer steps", "\(steps)", "Previous HIGHER value of \(self.previousSteps!)")
-        } else {
-            hcLogger.addToLogs(text: "Got pedometer steps of \(steps) and had previous LOWER value of \(self.previousSteps!)")
-            self.displayNotification("Got pedometer steps", "\(steps)", "Previous LOWER value of \(self.previousSteps!)")
-            self.previousSteps = steps
-            self.assistantToTheUpdateManager.updateServer(
-                type: "steps",
-                payload: ["steps": steps],
-                onSuccess: { data in
-                    hcLogger.addToLogs(text: "Success updating server with new steps value (pedometer)")
-                },
-                onError: { error in
-                    hcLogger.addToLogs(text: "Error updating server with new steps value (pedometer): \(error.localizedDescription)")
+
+        self.updateStepsIfAppropriate(steps, source: "pedometer")
+    }
+
+    func updateStepsIfAppropriate(_ steps: Int, source: String) {
+        let midnightToday = midnightOfToday()
+
+        if let prevSteps = self.previousSteps {
+            if let mostRecentStepsUpdateMidnightDate = self.defaults.object(forKey: "jottlyPreviousStepsMidnightDate") as? Date {
+                if midnightToday < mostRecentStepsUpdateMidnightDate {
+                    return
+                } else if midnightToday == mostRecentStepsUpdateMidnightDate {
+                    self.updateStepsIfNewValueHigher(prevSteps: prevSteps, newSteps: steps, forMidnightDate: midnightToday, source: source)
+                } else if midnightToday > mostRecentStepsUpdateMidnightDate {
+                    hcLogger.addToLogs(text: "Got \(source) steps of \(steps) and had previous LOWER value of \(prevSteps)")
+                    self.displayNotification("Got \(source) steps", "\(steps)", "Previous LOWER value of \(prevSteps)")
+                    self.updateStepsValue(steps, forMidnightDate: midnightToday, source: source)
                 }
-            )
+            }
+
+            self.updateStepsIfNewValueHigher(prevSteps: prevSteps, newSteps: steps, forMidnightDate: midnightToday, source: source)
+        } else {
+            hcLogger.addToLogs(text: "Got \(source) steps of \(steps) and had no previous value")
+            self.displayNotification("Got \(source) steps", "\(steps)", "Had no previous value")
+            self.updateStepsValue(steps, forMidnightDate: midnightToday, source: source)
+        }
+    }
+
+    func updateStepsValue(_ steps: Int, forMidnightDate midnight: Date, source: String) {
+        self.previousSteps = steps
+        self.defaults.set(midnight, forKey: "jottlyPreviousStepsMidnightDate")
+        self.assistantToTheUpdateManager.updateServer(
+            type: "steps",
+            payload: ["steps": steps],
+            onSuccess: { data in
+                hcLogger.addToLogs(text: "Success updating server with new steps value (\(source))")
+            },
+            onError: { error in
+                hcLogger.addToLogs(text: "Error updating server with new steps value (\(source)): \(error.localizedDescription)")
+            }
+        )
+    }
+
+    func updateStepsIfNewValueHigher(prevSteps: Int, newSteps: Int, forMidnightDate midnight: Date, source: String) {
+        if prevSteps > newSteps {
+            hcLogger.addToLogs(text: "Got \(source) steps of \(newSteps) but had previous HIGHER value of \(prevSteps)")
+            self.displayNotification("Got \(source) steps", "\(newSteps)", "Previous HIGHER value of \(prevSteps)")
+        } else {
+            hcLogger.addToLogs(text: "Got \(source) steps of \(newSteps) and had previous LOWER value of \(prevSteps)")
+            self.displayNotification("Got \(source) steps", "\(newSteps)", "Previous LOWER value of \(prevSteps)")
+            self.updateStepsValue(newSteps, forMidnightDate: midnight, source: source)
         }
     }
 
@@ -577,6 +597,13 @@ extension JotURLSessionError: LocalizedError {
     }
 }
 
+func midnightOfToday() -> Date {
+    let now = Date()
+    let midnightToday = Calendar.current.startOfDay(for: now)
+
+    print("Midnight of today: \(midnightToday)")
+    return midnightToday
+}
 
 //public enum LocationFetchingMode {
 //    case passive // sig change and visit

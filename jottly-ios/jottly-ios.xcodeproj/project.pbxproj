@@ -20,6 +20,9 @@
 		3360AAF31F4DA3B600543DE7 /* HCLogsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3360AAF21F4DA3B600543DE7 /* HCLogsViewController.swift */; };
 		3360AAF51F4DA43D00543DE7 /* UpdateManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3360AAF41F4DA43D00543DE7 /* UpdateManager.swift */; };
 		3360AAF71F4EE63800543DE7 /* ScheduledDoer.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3360AAF61F4EE63800543DE7 /* ScheduledDoer.swift */; };
+		3361E7C3202A4B3B00F50580 /* JotRequest.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3361E7C2202A4B3B00F50580 /* JotRequest.swift */; };
+		3361E7C5202A4B7300F50580 /* JotURLSessionDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3361E7C4202A4B7300F50580 /* JotURLSessionDelegate.swift */; };
+		3361E7C7202A4BB000F50580 /* AssistantToTheUpdateManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3361E7C6202A4BB000F50580 /* AssistantToTheUpdateManager.swift */; };
 		336F2A321FFABA460098687B /* Pedometer.swift in Sources */ = {isa = PBXBuildFile; fileRef = 336F2A311FFABA460098687B /* Pedometer.swift */; };
 		336F2A341FFAC2860098687B /* Location.swift in Sources */ = {isa = PBXBuildFile; fileRef = 336F2A331FFAC2860098687B /* Location.swift */; };
 		336F2A361FFAC4600098687B /* Health.swift in Sources */ = {isa = PBXBuildFile; fileRef = 336F2A351FFAC4600098687B /* Health.swift */; };
@@ -42,6 +45,9 @@
 		3360AAF41F4DA43D00543DE7 /* UpdateManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UpdateManager.swift; sourceTree = "<group>"; };
 		3360AAF61F4EE63800543DE7 /* ScheduledDoer.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ScheduledDoer.swift; sourceTree = "<group>"; };
 		3360AAF81F501A2800543DE7 /* jottly-ios.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = "jottly-ios.entitlements"; sourceTree = "<group>"; };
+		3361E7C2202A4B3B00F50580 /* JotRequest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = JotRequest.swift; sourceTree = "<group>"; };
+		3361E7C4202A4B7300F50580 /* JotURLSessionDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = JotURLSessionDelegate.swift; sourceTree = "<group>"; };
+		3361E7C6202A4BB000F50580 /* AssistantToTheUpdateManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AssistantToTheUpdateManager.swift; sourceTree = "<group>"; };
 		336F2A311FFABA460098687B /* Pedometer.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Pedometer.swift; sourceTree = "<group>"; };
 		336F2A331FFAC2860098687B /* Location.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Location.swift; sourceTree = "<group>"; };
 		336F2A351FFAC4600098687B /* Health.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Health.swift; sourceTree = "<group>"; };
@@ -90,8 +96,11 @@
 				3360AADA1F4D43FA00543DE7 /* AppDelegate.swift */,
 				3360AADC1F4D43FA00543DE7 /* ViewController.swift */,
 				3360AAF41F4DA43D00543DE7 /* UpdateManager.swift */,
-				336F2A351FFAC4600098687B /* Health.swift */,
+				3361E7C6202A4BB000F50580 /* AssistantToTheUpdateManager.swift */,
+				3361E7C4202A4B7300F50580 /* JotURLSessionDelegate.swift */,
+				3361E7C2202A4B3B00F50580 /* JotRequest.swift */,
 				3360AAEC1F4D4D1D00543DE7 /* ScheduledLocationManager.swift */,
+				336F2A351FFAC4600098687B /* Health.swift */,
 				336F2A311FFABA460098687B /* Pedometer.swift */,
 				336F2A331FFAC2860098687B /* Location.swift */,
 				3360AAF01F4DA3A300543DE7 /* HCLogger.swift */,
@@ -195,7 +204,10 @@
 				336F2A341FFAC2860098687B /* Location.swift in Sources */,
 				3360AAF71F4EE63800543DE7 /* ScheduledDoer.swift in Sources */,
 				33196F1D1F51910A007F124A /* BasicScheddy.swift in Sources */,
+				3361E7C3202A4B3B00F50580 /* JotRequest.swift in Sources */,
 				3360AAF51F4DA43D00543DE7 /* UpdateManager.swift in Sources */,
+				3361E7C5202A4B7300F50580 /* JotURLSessionDelegate.swift in Sources */,
+				3361E7C7202A4BB000F50580 /* AssistantToTheUpdateManager.swift in Sources */,
 				3360AAF11F4DA3A300543DE7 /* HCLogger.swift in Sources */,
 				336F2A321FFABA460098687B /* Pedometer.swift in Sources */,
 				3360AAEF1F4D9DA200543DE7 /* HCLocationManager.swift in Sources */,

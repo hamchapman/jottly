@@ -1,11 +1,11 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="13178.6" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="BYZ-38-t0r">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="13771" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="BYZ-38-t0r">
     <device id="retina4_7" orientation="portrait">
         <adaptation id="fullscreen"/>
     </device>
     <dependencies>
         <deployment identifier="iOS"/>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="13156.2"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="13772"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
@@ -13,23 +13,87 @@
         <!--View Controller-->
         <scene sceneID="tne-QT-ifu">
             <objects>
-                <viewController id="BYZ-38-t0r" customClass="ViewController" customModule="jottly" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController id="BYZ-38-t0r" customClass="ViewController" customModule="Jottly" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="8bC-Xf-vdC">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="HaH-9j-YEg">
-                                <rect key="frame" x="148" y="92" width="79" height="30"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                            <button opaque="NO" contentMode="scaleToFill" misplaced="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="HaH-9j-YEg">
+                                <rect key="frame" x="148" y="617" width="79" height="30"/>
                                 <state key="normal" title="Show Logs"/>
                                 <connections>
                                     <action selector="showLogsButton:" destination="BYZ-38-t0r" eventType="touchUpInside" id="re4-x3-7sf"/>
                                 </connections>
                             </button>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Steps today:" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="q1s-VX-2Hk">
+                                <rect key="frame" x="16" y="20" width="96" height="21"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="12,345" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="dgc-yg-dbC">
+                                <rect key="frame" x="120" y="20" width="53" height="21"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <color key="textColor" red="0.41664238267744158" green="0.48553461995393721" blue="0.54440576424870468" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Most recent latitude:" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="mWe-aP-kDY">
+                                <rect key="frame" x="16" y="49" width="158" height="21"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="0.0000" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="zTT-Ne-TQF">
+                                <rect key="frame" x="182" y="49" width="55" height="21"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <color key="textColor" red="0.41664238269999998" green="0.48553461999999997" blue="0.54440576419999998" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Most recent longitude:" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="ALM-dJ-zcD">
+                                <rect key="frame" x="16" y="78" width="173" height="21"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="0.0000" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="yeG-Sx-LI9">
+                                <rect key="frame" x="197" y="78" width="55" height="21"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <color key="textColor" red="0.41664238269999998" green="0.48553461999999997" blue="0.54440576419999998" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <mapView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" mapType="standard" translatesAutoresizingMaskIntoConstraints="NO" id="bpj-5o-YqD">
+                                <rect key="frame" x="0.0" y="107" width="375" height="502"/>
+                            </mapView>
                         </subviews>
                         <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                        <constraints>
+                            <constraint firstItem="bpj-5o-YqD" firstAttribute="width" secondItem="8bC-Xf-vdC" secondAttribute="width" id="33v-LI-QiI"/>
+                            <constraint firstItem="q1s-VX-2Hk" firstAttribute="top" secondItem="6Tk-OE-BBY" secondAttribute="top" id="4Ro-yn-gbl"/>
+                            <constraint firstItem="HaH-9j-YEg" firstAttribute="top" secondItem="bpj-5o-YqD" secondAttribute="bottom" constant="8" id="4xO-s9-oDS"/>
+                            <constraint firstItem="dgc-yg-dbC" firstAttribute="top" secondItem="6Tk-OE-BBY" secondAttribute="top" id="5ff-u5-Rgw"/>
+                            <constraint firstItem="yeG-Sx-LI9" firstAttribute="leading" secondItem="ALM-dJ-zcD" secondAttribute="trailing" constant="8" id="62I-J3-YOA"/>
+                            <constraint firstItem="bpj-5o-YqD" firstAttribute="top" secondItem="ALM-dJ-zcD" secondAttribute="bottom" constant="8" id="F4a-a4-2Ja"/>
+                            <constraint firstItem="mWe-aP-kDY" firstAttribute="top" secondItem="q1s-VX-2Hk" secondAttribute="bottom" constant="8" id="IuL-ab-kdx"/>
+                            <constraint firstItem="yeG-Sx-LI9" firstAttribute="top" secondItem="ALM-dJ-zcD" secondAttribute="top" id="L1u-1F-NkZ"/>
+                            <constraint firstItem="dgc-yg-dbC" firstAttribute="leading" secondItem="q1s-VX-2Hk" secondAttribute="trailing" constant="8" id="Omq-tL-HsP"/>
+                            <constraint firstItem="zTT-Ne-TQF" firstAttribute="top" secondItem="mWe-aP-kDY" secondAttribute="top" id="RyJ-gd-KCu"/>
+                            <constraint firstItem="HaH-9j-YEg" firstAttribute="centerX" secondItem="6Tk-OE-BBY" secondAttribute="centerX" id="SMQ-h8-RdR"/>
+                            <constraint firstItem="q1s-VX-2Hk" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" constant="16" id="Wdv-tF-Wvu"/>
+                            <constraint firstItem="zTT-Ne-TQF" firstAttribute="leading" secondItem="mWe-aP-kDY" secondAttribute="trailing" constant="8" id="bTD-D6-8ij"/>
+                            <constraint firstItem="6Tk-OE-BBY" firstAttribute="bottom" secondItem="bpj-5o-YqD" secondAttribute="bottom" constant="58" id="clG-2J-KX0"/>
+                            <constraint firstItem="ALM-dJ-zcD" firstAttribute="top" secondItem="mWe-aP-kDY" secondAttribute="bottom" constant="8" id="kNg-F4-lus"/>
+                            <constraint firstItem="bpj-5o-YqD" firstAttribute="centerX" secondItem="6Tk-OE-BBY" secondAttribute="centerX" id="qG3-UW-9D8"/>
+                            <constraint firstItem="ALM-dJ-zcD" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" constant="16" id="uDU-TL-QYH"/>
+                            <constraint firstItem="mWe-aP-kDY" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" constant="16" id="wjW-yi-h4a"/>
+                        </constraints>
                         <viewLayoutGuide key="safeArea" id="6Tk-OE-BBY"/>
                     </view>
+                    <connections>
+                        <outlet property="mostRecentLatitudeLabel" destination="zTT-Ne-TQF" id="pAQ-Ud-ev7"/>
+                        <outlet property="mostRecentLocationMapView" destination="bpj-5o-YqD" id="zuN-ar-EZy"/>
+                        <outlet property="mostRecentLongitudeLabel" destination="yeG-Sx-LI9" id="lbx-mC-gRi"/>
+                        <outlet property="stepsTodayLabel" destination="dgc-yg-dbC" id="VkE-ni-VZp"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
             </objects>

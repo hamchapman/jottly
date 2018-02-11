@@ -14,14 +14,24 @@ public class UpdateManager: NSObject {
 
     var _previousLocation: CLLocation? = nil
     var _previousLatitude: Double? = nil {
-        didSet { defaults.set(self._previousLatitude, forKey: "jottlyPreviousLatitude") }
+        didSet {
+            hcLogger.addToLogs(text: "Setting user defaults for jottlyPreviousLatitude: \(self._previousLatitude)")
+            displayNotification("Setting user defaults for jottlyPreviousLatitude", "\(self._previousLatitude)", "")
+            defaults.set(self._previousLatitude, forKey: "jottlyPreviousLatitude")
+        }
     }
     var _previousLongitude: Double? = nil {
-        didSet { defaults.set(self._previousLongitude, forKey: "jottlyPreviousLatitude") }
+        didSet {
+            hcLogger.addToLogs(text: "Setting user defaults for jottlyPreviousLongitude: \(self._previousLongitude)")
+            displayNotification("Setting user defaults for jottlyPreviousLongitude", "\(self._previousLongitude)", "")
+            defaults.set(self._previousLongitude, forKey: "jottlyPreviousLongitude")
+        }
     }
 
     public var previousLocation: CLLocation? {
         set {
+            hcLogger.addToLogs(text: "Setting _previousLocation: \(newValue)")
+            displayNotification("Setting _previousLocation:", "\(newValue)", "")
             self._previousLocation = newValue
             self._previousLatitude = newValue?.coordinate.latitude
             self._previousLongitude = newValue?.coordinate.longitude
@@ -42,6 +52,8 @@ public class UpdateManager: NSObject {
                                               : checkForStoredSteps()
         }
     }
+
+    public var locationUpdatesWithoutSignifcantDistanceTravelled: Int = 0
 
     public var displayNotification: (String, String, String) -> Void
 
@@ -267,14 +279,22 @@ extension UpdateManager: ScheduledLocationManagerDelegate {
 
             if distanceBetweenLocations > 100 {
                 displayNotification("Distance travelled", "\(distanceBetweenLocations)m", "\(distanceBetweenLocations)m is > 100m so continue")
+                locationUpdatesWithoutSignifcantDistanceTravelled = 0
+            } else if locationUpdatesWithoutSignifcantDistanceTravelled < 4 {
+                displayNotification("Distance travelled", "\(distanceBetweenLocations)m", "\(distanceBetweenLocations)m is < 100m but continuing (\(locationUpdatesWithoutSignifcantDistanceTravelled + 1)/4)")
+                locationUpdatesWithoutSignifcantDistanceTravelled += 1
             } else {
                 displayNotification("Distance travelled", "\(distanceBetweenLocations)m", "\(distanceBetweenLocations)m is < 100m so stop")
+                locationUpdatesWithoutSignifcantDistanceTravelled = 0
                 manager.stopUpdatingLocation()
             }
         } else {
             hcLogger.addToLogs(text: "No previous location stored")
             displayNotification("Scheduled location manager update", "No previous location stored", "")
         }
+
+        hcLogger.addToLogs(text: "About to set previous location to: \(lastLocation.coordinate.latitude), \(lastLocation.coordinate.longitude)")
+        displayNotification("About to set previous location to", "\(lastLocation.coordinate.latitude), \(lastLocation.coordinate.longitude)", "")
         self.previousLocation = lastLocation
         getStepsToday()
     }

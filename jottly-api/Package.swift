@@ -4,7 +4,6 @@ import PackageDescription
 let package = Package(
     name: "jottly-api",
     dependencies: [
-        // 💧 A server-side Swift web framework. 
         .package(url: "https://github.com/vapor/vapor.git", .branch("beta")),
     ],
     targets: [

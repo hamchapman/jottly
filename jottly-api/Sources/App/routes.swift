@@ -1,35 +1,43 @@
 import Routing
 import Vapor
-import Foundation
 import Console
+import Foundation
 
 /// Register your application's routes here.
 ///
 /// [Learn More →](https://docs.vapor.codes/3.0/getting-started/structure/#routesswift)
-final class Routes: RouteCollection {
-    /// Use this to create any services you may
-    /// need for your routes.
-    let app: Application
-
-    /// Create a new Routes collection with
-    /// the supplied application.
-    init(app: Application) {
-        self.app = app
+public func routes(_ router: Router) throws {
+    // Basic "Hello, world!" example
+    router.get("hello") { req in
+        return "Hello, world!"
     }
 
-    /// See RouteCollection.boot
-    func boot(router: Router) throws {
-        router.get("hello") { req in
-            return "Hello, world!"
-        }
+    // Example of creating a Service and using it.
+    router.get("hash", String.parameter) { req -> String in
+        // Create a BCryptHasher using the Request's Container
+        let hasher = try req.make(BCryptHasher.self)
 
-        router.post("jot") { req -> String in
-            let _ = req.body.makeData(max: 100_000).do { data in
-                let bodyString = String(data: data, encoding: .utf8)!
-                Terminal().output(bodyString, style: .info)
-            }
+        // Fetch the String parameter (as described in the route)
+        let string = try req.parameter(String.self)
 
-            return "Jot received!"
-        }
+        // Return the hashed string!
+        return try hasher.make(string)
     }
+
+    // Example of configuring a controller
+    let todoController = TodoController()
+    router.get("todos", use: todoController.index)
+    router.post("todos", use: todoController.create)
+    router.delete("todos", Todo.parameter, use: todoController.delete)
+
+
+    router.post("jot") { req -> String in
+        let _ = req.http.body.makeData(max: 100_000).do { data in
+            let bodyString = String(data: data, encoding: .utf8)!
+            Terminal().output(bodyString, style: .info)
+        }
+
+        return "Jot received!"
+    }
+
 }

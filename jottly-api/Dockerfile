@@ -1,11 +1,7 @@
 FROM norionomura/swift:swift-4.1-branch
 
-RUN apt-get update && \
-    apt-get install -y \
-      libssl-dev \
-      && \
-    apt-get clean && \
-    rm -rf /var/lib/apt/lists/* /tmp/* /var/tmp/*
+RUN apt-get -qq update
+RUN apt-get install -yq libssl-dev
 
 WORKDIR /app
 

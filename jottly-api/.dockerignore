@@ -1,0 +1,7 @@
+.git
+.gitignore
+.swift-version
+xcuserdata
+*.xcodeproj
+DerivedData/
+.DS_Store

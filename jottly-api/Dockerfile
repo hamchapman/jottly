@@ -2,12 +2,6 @@ FROM norionomura/swift:swift-4.1-branch
 
 RUN apt-get -qq update
 RUN apt-get install -yq libssl-dev
-RUN rm /etc/apt/apt.conf.d/docker-gzip-indexes
-RUN apt-get purge apt-show-versions
-RUN rm /var/lib/apt/lists/*lz4
-RUN apt-get -o Acquire::GzipIndexes=false update
-RUN apt-get install -yq apt-show-versions
-RUN apt-show-versions libssl-dev
 
 WORKDIR /app
 
@@ -16,12 +10,9 @@ COPY ./Package.swift Package.swift
 COPY ./Package.resolved Package.resolved
 COPY ./Tests Tests/
 COPY ./Sources Sources/
-COPY ./.build .build/
 
+RUN swift package update
 RUN swift build -c release
-
-RUN useradd jottly && chown -R jottly /app
-USER jottly
 
 EXPOSE 8080
 

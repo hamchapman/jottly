@@ -5,3 +5,9 @@ xcuserdata
 *.xcodeproj
 DerivedData/
 .DS_Store
+README.md
+cloud.yml
+circle.yml
+api-template.paw
+license
+.build/

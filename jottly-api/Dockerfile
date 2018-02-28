@@ -2,6 +2,10 @@ FROM norionomura/swift:swift-4.1-branch
 
 RUN apt-get -qq update
 RUN apt-get install -yq libssl-dev
+RUN apt-get purge apt-show-versions
+RUN apt-get -o Acquire::GzipIndexes=false update
+RUN apt-get install -yq apt-show-versions
+RUN apt-show-versions libssl-dev
 
 WORKDIR /app
 

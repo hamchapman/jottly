@@ -11,7 +11,7 @@ COPY ./Package.resolved Package.resolved
 COPY ./Tests Tests/
 COPY ./Sources Sources/
 
-RUN swift package update
+RUN swift package resolve
 RUN swift build -c release
 
 EXPOSE 8080

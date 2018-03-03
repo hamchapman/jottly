@@ -5,7 +5,8 @@ let package = Package(
     name: "jottly-api",
     dependencies: [
         // 💧 A server-side Swift web framework.
-        .package(url: "https://github.com/vapor/vapor.git", from: "3.0.0-rc"),
+        .package(url: "https://github.com/hamchapman/vapor.git", .branch("extra-invalid-message-logging")),
+        // .package(url: "https://github.com/vapor/vapor.git", from: "3.0.0-rc"),
 
         // 🔵 Swift ORM (queries, models, relations, etc) built on SQLite 3.
         .package(url: "https://github.com/vapor/fluent-sqlite.git", from: "3.0.0-rc"),
